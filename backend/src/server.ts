@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 // file import
 import workoutRoutes from './routes/workoutRoutes'
 import logger from './config/logger'
+import connectDB from './config/db'
 
 // config dotenv
 dotenv.config()
@@ -12,6 +13,9 @@ const PORT = process.env.PORT
 
 // express app 
 const app: Express = express()
+
+// mongoDB
+connectDB()
 
 // middleware
 app.use(express.json())
