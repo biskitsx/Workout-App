@@ -1,12 +1,13 @@
 import express, { Router } from 'express'
-import workoutController from '../controllers/workoutController'
+import {createWorkout, getWorkout, getWorkouts, deleteWorkout, updateWorkout} from '../controllers/workoutController'
+
 
 const router: Router = express.Router()
 
-router.get('/',workoutController.getAll)
-router.get('/:id',workoutController.getSingle)
-router.post('/',workoutController.post)
-router.patch('/',workoutController.patch)
-router.delete('/',workoutController.del)
+router.get('/',getWorkouts)
+router.get('/:id',getWorkout)
+router.post('/',createWorkout)
+router.patch('/:id',updateWorkout)
+router.delete('/:id',deleteWorkout)
 
 export default router
