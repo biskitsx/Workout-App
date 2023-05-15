@@ -9,6 +9,8 @@ function Workout({workout}) {
                 method: 'delete'
             })
             const json = await response.json()
+            console.log(response)
+            console.log(json)
         } catch(e) {
             console.log(e)
         }

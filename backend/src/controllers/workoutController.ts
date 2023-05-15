@@ -1,6 +1,6 @@
 import express , {Request, Response} from 'express'
-import Workout from '../models/WorkoutModel'
-import logger from '../config/logger'
+import Workout, {IWorkout, IWorkoutDocument} from '../models/WorkoutModel'
+import logger from '../utils/logger'
 import mongoose from 'mongoose'
 
 // create Workout
@@ -23,7 +23,7 @@ async function createWorkout(req: Request, res: Response): Promise<void> {
             res.status(400).json({error: "please fill in all the fields", EmptyFields})
             return
         }
-        const workout = await Workout.create({title, load, reps})
+        const workout: IWorkoutDocument = await Workout.create({title, load, reps})
         res.status(200).json(workout)
     } catch(e: any) {
         res.status(400).json({error: e.message})
@@ -53,7 +53,6 @@ async function getWorkout(req: Request, res: Response): Promise<void> {
     } catch(e: any) {
         res.status(400).json({error : e.message})
     }
-    
 }
 
 // delete workout
@@ -89,4 +88,3 @@ async function updateWorkout(req: Request, res: Response): Promise<void> {
 }
 
 export {createWorkout, getWorkout, getWorkouts, deleteWorkout, updateWorkout}
-

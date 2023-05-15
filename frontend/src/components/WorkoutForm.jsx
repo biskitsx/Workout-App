@@ -25,8 +25,8 @@ function WorkoutForm() {
                 setError(json.error)
                 setEmptyField(json.EmptyFields)
             } else {
-                setError(null)
                 console.log("new workout added", json)
+                setError(null)
                 setTitle('')
                 setLoad('')
                 setReps('')

@@ -1,8 +1,6 @@
 import express, { Router } from 'express'
-import {createWorkout, getWorkout, getWorkouts, deleteWorkout, updateWorkout} from '../controllers/workoutController'
-
-
 const router: Router = express.Router()
+import {createWorkout, getWorkout, getWorkouts, deleteWorkout, updateWorkout} from '../controllers/workoutController'
 
 router.get('/',getWorkouts)
 router.get('/:id',getWorkout)

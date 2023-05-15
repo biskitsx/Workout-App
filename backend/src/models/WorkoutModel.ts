@@ -1,15 +1,15 @@
 import mongoose, { model, Document } from "mongoose";
 
-// interface IWorkout {
-//     title: string,
-//     reps: number,
-//     load: number
-// }
+export interface IWorkout {
+    title: string,
+    reps: string,
+    load: string
+}
 
-// interface IWorkoutDocument extends IWorkout, Document {
-//     createAt: Date,
-//     updateAt: Date
-// }
+export interface IWorkoutDocument extends IWorkout, Document {
+    createdAt: Date,
+    updatedAt: Date
+}
 
 const workoutSchema = new mongoose.Schema({
     title: {
@@ -26,5 +26,5 @@ const workoutSchema = new mongoose.Schema({
     }
 }, {timestamps: true})
 
-const Workout = mongoose.model("Workout", workoutSchema)
+const Workout = mongoose.model<IWorkoutDocument>("Workout", workoutSchema)
 export default Workout
